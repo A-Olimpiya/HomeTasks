@@ -40,47 +40,24 @@ public class Tasks {
         System.out.println(isYearLeap(800));
 
         System.out.println("\nTask 10:");
-        int[] array10 = {0, 1, 1, 0, 1, 1};
-        for (int i = 0; i < array10.length; i++) {
-            if (array10[i] == 0) {
-                array10[i] = 1;
-            } else {
-                array10[i] = 0;
-            }
-        }
-        for (int i : array10) {
+        for (int i : invertArray(new int[]{0, 1, 1, 0, 1, 1})) {
             System.out.print(i + " ");
         }
 
         System.out.println("\n\nTask 11:");
-        int[] array11 = new int[100];
-        for (int i = 0; i < array11.length; i++) {
-            array11[i] = i + 1;
-        }
-        for (int i : array11) {
+        for (int i : fillArrayFrom1To100()) {
             System.out.print(i + " ");
         }
 
         System.out.println("\n\nTask 12:");
-        int[] array12 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        for (int i = 0; i < array12.length; i++) {
-            if (array12[i] < 6) {
-                array12[i] = array12[i] * 2;
-            }
-        }
-        for (int i : array12) {
+        for (int i : arrayChangeLessSix(new int[]{1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1})) {
             System.out.print(i + " ");
         }
 
         System.out.println("\n\nTask 13:");
-        int[][] array13 = new int[4][4];
-        for (int i = 0; i < array13.length; i++) {
-            array13[i][i] = 1;
-            array13[i][array13.length - 1 - i] = 1;
-        }
-        for (int[] ints : array13) {
-            for (int anInt : ints) {
-                System.out.print(anInt + " ");
+        for (int[] i : fillDiagonalWithOnes(new int[4][4])) {
+            for (int j : i) {
+                System.out.print(j + " ");
             }
             System.out.println();
         }
@@ -93,7 +70,9 @@ public class Tasks {
     }
 
     public static void printThreeWords() {
-        System.out.println("Orange\nBanana\nApple");
+        System.out.println("Orange");
+        System.out.println("Banana");
+        System.out.println("Apple");
     }
 
     public static void checkSumSign() {
@@ -122,8 +101,7 @@ public class Tasks {
     }
 
     public static boolean isSumBetween10And20(int a, int b) {
-        int sum = a + b;
-        return sum >= 10 && sum <= 20;
+        return a + b >= 10 && a + b <= 20;
     }
 
     public static void printNumberSign(int a) {
@@ -148,6 +126,42 @@ public class Tasks {
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
 
+    public static int[] invertArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == 0) {
+                array[i] = 1;
+            } else {
+                array[i] = 0;
+            }
+        }
+        return array;
+    }
+
+    private static int[] fillArrayFrom1To100() {
+        int[] array = new int[100];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i + 1;
+        }
+        return array;
+    }
+
+    private static int[] arrayChangeLessSix(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 6) {
+                array[i] = array[i] * 2;
+            }
+        }
+        return array;
+    }
+
+    private static int[][] fillDiagonalWithOnes(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i][i] = 1;
+            array[i][array.length - 1 - i] = 1;
+        }
+        return array;
+    }
+
     public static int[] arrayLength(int len, int initialValue) {
         int[] array = new int[len];
         for (int i = 0; i < array.length; i++) {
@@ -156,6 +170,3 @@ public class Tasks {
         return array;
     }
 }
-
-
-
