@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TriangleAreaTest {
+    TriangleArea triangleArea = new TriangleArea();
 
     @ParameterizedTest
     @DisplayName("Площадь треугольника")
@@ -20,7 +21,7 @@ class TriangleAreaTest {
             "0.5, 0.5, 0.125"
     })
     void triangleArea(double side, double length, double expected) {
-        assertEquals(expected, TriangleArea.triangleArea(side, length));
+        assertEquals(expected, triangleArea.triangleArea(side, length));
     }
 
     @ParameterizedTest
@@ -35,7 +36,7 @@ class TriangleAreaTest {
     })
     void testTriangleAreaInvalid(double side, double length) {
         try {
-            TriangleArea.triangleArea(side, length);
+            triangleArea.triangleArea(side, length);
             fail("Должно выбросить исключение для сторон: " + side + ", " + length);
         } catch (IllegalArgumentException e) {
             assertEquals("Основание и высота должны быть положительными числами",

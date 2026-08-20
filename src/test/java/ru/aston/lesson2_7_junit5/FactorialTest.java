@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FactorialTest {
+    Factorial factorial = new Factorial();
 
     @ParameterizedTest
     @DisplayName("Получение факториала")
@@ -21,18 +22,18 @@ class FactorialTest {
             "20, 2432902008176640000"
     })
     void getFactorial(int n, long expected) {
-        assertEquals(expected, Factorial.getFactorial(n));
+        assertEquals(expected, factorial.getFactorial(n));
     }
 
     @Test
     @DisplayName("Число больше 20 выбрасывает исключение")
     void testFactorialTooLarge() {
         try {
-            Factorial.getFactorial(21);
+            factorial.getFactorial(21);
             fail("Должно выбросить исключение для числа больше 20");
         } catch (IllegalArgumentException e) {
             assertEquals("Число должно быть от 0 до 20",
-                    e.getMessage());  // ✅ Проверка точного сообщения
+                    e.getMessage());
         }
     }
 
@@ -40,7 +41,7 @@ class FactorialTest {
     @DisplayName("Отрицательное число выбрасывает исключение")
     void testFactorialNegative() {
         try {
-            Factorial.getFactorial(-1);
+            factorial.getFactorial(-1);
             fail("Должно выбросить исключение для отрицательного числа");
         } catch (IllegalArgumentException e) {
             assertEquals("Число не должно быть отрицательным", e.getMessage());

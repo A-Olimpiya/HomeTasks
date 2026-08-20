@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ComparatorTest {
+    Comparator comparator = new Comparator();
 
     @ParameterizedTest
     @DisplayName("Сравнение двух чисел")
@@ -32,6 +33,6 @@ class ComparatorTest {
             "-100, -100, -100 = -100"
     })
     void testCompareNumbers(int a, int b, String expected) {
-        assertEquals(expected, Comparator.compareNumbers(a, b));
+        assertEquals(expected, comparator.compareNumbers(a, b));
     }
 }

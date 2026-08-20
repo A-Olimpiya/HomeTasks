@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
+    private final Calculator calculator = new Calculator();
 
     @ParameterizedTest
     @DisplayName("Сложение чисел")
@@ -19,7 +20,7 @@ class CalculatorTest {
             "10, -5, 5"
     })
     void testSum(double a, double b, double expected) {
-        assertEquals(expected, Calculator.sum(a, b));
+        assertEquals(expected, calculator.sum(a, b));
     }
 
     @ParameterizedTest
@@ -32,7 +33,7 @@ class CalculatorTest {
             "10, -5, 15"
     })
     void testSub(double a, double b, double expected) {
-        assertEquals(expected, Calculator.sub(a, b));
+        assertEquals(expected, calculator.sub(a, b));
     }
 
     @ParameterizedTest
@@ -45,7 +46,7 @@ class CalculatorTest {
             "10, -5, -50"
     })
     void testMul(double a, double b, double expected) {
-        assertEquals(expected, Calculator.mul(a, b));
+        assertEquals(expected, calculator.mul(a, b));
     }
 
     @ParameterizedTest
@@ -58,14 +59,14 @@ class CalculatorTest {
             "0, 5, 0"
     })
     void testDiv(double a, double b, double expected) {
-        assertEquals(expected, Calculator.div(a, b));
+        assertEquals(expected, calculator.div(a, b));
     }
 
     @Test
     @DisplayName("Деление на ноль выбрасывает исключение")
     void testDivByZero() {
         try {
-            Calculator.div(5, 0);
+            calculator.div(5, 0);
             fail("Деление должно выбросить исключение");
         } catch (ArithmeticException e) {
             assertEquals("Деление на ноль невозможно", e.getMessage());

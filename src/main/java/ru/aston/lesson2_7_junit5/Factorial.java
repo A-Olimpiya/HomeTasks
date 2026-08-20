@@ -4,17 +4,18 @@ import java.util.Scanner;
 
 public class Factorial {
     public static void main(String[] args) {
+        Factorial factorial = new Factorial();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введи число для вычисления факториала от 0 до 20: ");
         int number = scanner.nextInt();
         try {
-            System.out.println("Факториал " + number + " = " + getFactorial(number));
+            System.out.println("Факториал " + number + " = " + factorial.getFactorial(number));
         } catch (IllegalArgumentException e) {
             System.out.println("Число должно быть от 0 до 20");
         }
     }
 
-    public static long getFactorial(int n) {
+    public long getFactorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Число не должно быть отрицательным");
         }
