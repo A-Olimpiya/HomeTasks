@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class FactorialTest {
+    Factorial factorial = new Factorial();
 
     @DataProvider(name = "factorialData")
     public Object[][] factorialData() {
@@ -22,20 +23,20 @@ public class FactorialTest {
 
     @Test(dataProvider = "factorialData")
     public void testGetFactorial(int n, long expected) {
-        assertEquals(Factorial.getFactorial(n), expected);
+        assertEquals(factorial.getFactorial(n), expected);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
             expectedExceptionsMessageRegExp = "Число должно быть от 0 до 20",
             description = "Число больше 20 выбрасывает исключение")
     public void testFactorialTooLarge() {
-        Factorial.getFactorial(21);
+        factorial.getFactorial(21);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class,
             expectedExceptionsMessageRegExp = "Число не должно быть отрицательным",
             description = "Отрицательное число выбрасывает исключение")
     public void testFactorialNegative() {
-        Factorial.getFactorial(-1);
+        factorial.getFactorial(-1);
     }
 }

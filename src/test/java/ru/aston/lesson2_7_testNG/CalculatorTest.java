@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class CalculatorTest {
+    Calculator calculator = new Calculator();
 
     @DataProvider(name = "sumData")
     public Object[][] sumData() {
@@ -20,7 +21,7 @@ public class CalculatorTest {
 
     @Test(dataProvider = "sumData")
     public void testSum(double a, double b, double expected) {
-        assertEquals(Calculator.sum(a, b), expected);
+        assertEquals(calculator.sum(a, b), expected);
     }
 
     @DataProvider(name = "subData")
@@ -36,7 +37,7 @@ public class CalculatorTest {
 
     @Test(dataProvider = "subData")
     public void testSub(double a, double b, double expected) {
-        assertEquals(Calculator.sub(a, b), expected);
+        assertEquals(calculator.sub(a, b), expected);
     }
 
     @DataProvider(name = "mulData")
@@ -52,7 +53,7 @@ public class CalculatorTest {
 
     @Test(dataProvider = "mulData")
     public void testMul(double a, double b, double expected) {
-        assertEquals(Calculator.mul(a, b), expected);
+        assertEquals(calculator.mul(a, b), expected);
     }
 
     @DataProvider(name = "divData")
@@ -68,13 +69,13 @@ public class CalculatorTest {
 
     @Test(dataProvider = "divData")
     public void testDiv(double a, double b, double expected) {
-        assertEquals(Calculator.div(a, b), expected);
+        assertEquals(calculator.div(a, b), expected);
     }
 
     @Test(expectedExceptions = ArithmeticException.class,
             expectedExceptionsMessageRegExp = "Деление на ноль невозможно",
             description = "Деление на ноль выбрасывает исключение")
     public void testDivByZero() {
-        Calculator.div(5, 0);
+        calculator.div(5, 0);
     }
 }

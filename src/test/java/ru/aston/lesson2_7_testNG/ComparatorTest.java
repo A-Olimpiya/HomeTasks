@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class ComparatorTest {
+    Comparator comparator = new Comparator();
+
     @DataProvider(name = "numbersData")
     public Object[][] data() {
         return new Object[][]{// a < b
@@ -31,6 +33,6 @@ public class ComparatorTest {
 
     @Test(dataProvider = "numbersData")
     public void testCompareNumbers(int a, int b, String expected) {
-        assertEquals(Comparator.compareNumbers(a, b), expected);
+        assertEquals(comparator.compareNumbers(a, b), expected);
     }
 }

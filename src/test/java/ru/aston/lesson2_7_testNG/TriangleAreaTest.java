@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class TriangleAreaTest {
+    TriangleArea triangleArea = new TriangleArea();
 
     @DataProvider(name = "validTriangleData")
     public Object[][] validTriangleData() {
@@ -20,7 +21,7 @@ public class TriangleAreaTest {
 
     @Test(dataProvider = "validTriangleData")
     public void testTriangleArea(double side, double length, double expected) {
-        assertEquals(TriangleArea.triangleArea(side, length), expected);
+        assertEquals(triangleArea.triangleArea(side, length), expected);
     }
 
     @DataProvider(name = "invalidTriangleData")
@@ -40,6 +41,6 @@ public class TriangleAreaTest {
             expectedExceptionsMessageRegExp = "Основание и высота должны быть положительными числами",
             description = "Невалидные значения сторон выбрасывают исключение")
     public void testTriangleAreaInvalid(double side, double length) {
-        TriangleArea.triangleArea(side, length);
+        triangleArea.triangleArea(side, length);
     }
 }

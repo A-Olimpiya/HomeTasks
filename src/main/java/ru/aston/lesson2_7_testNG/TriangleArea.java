@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 public class TriangleArea {
     public static void main(String[] args) {
+        TriangleArea triangleArea = new TriangleArea();
         try {
             Scanner sc = new Scanner(System.in);
             System.out.println("Введите основание треугольника: ");
-            int side = sc.nextInt();
+            double side = sc.nextDouble();
             System.out.println("Введите высоту треугольника: ");
-            int length = sc.nextInt();
-            System.out.println("Площадь треугольника: " + triangleArea(side, length));
+            double length = sc.nextDouble();
+            System.out.println("Площадь треугольника: " + triangleArea.triangleArea(side, length));
         } catch (InputMismatchException e) {
             System.out.println("Ошибка: необходимо ввести число");
         } catch (IllegalArgumentException e) {
@@ -19,7 +20,7 @@ public class TriangleArea {
         }
     }
 
-    public static double triangleArea(double side, double length) {
+    public double triangleArea(double side, double length) {
         if (side <= 0 || length <= 0) {
             throw new IllegalArgumentException(
                     "Основание и высота должны быть положительными числами"
