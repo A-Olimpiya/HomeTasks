@@ -15,12 +15,13 @@ public class Main {
         for (Student student : students) {
             System.out.println("У студента  " + student.getName() + " средний балл " + student.getAverage());
         }
+        Student student = students.get(0);
 
-        Student.removeStudentAverageLessThree(students);
-        Student.nextCourse(students);
+        student.removeStudentAverageLessThree(students);
+        student.nextCourse(students);
 
         Set<Student> studentSet = new HashSet<>(students);
-        Student.printStudents(studentSet, 1);
-        Student.printStudents(studentSet, 2);
+        student.printStudents(studentSet, 1);
+        student.printStudents(studentSet, 2);
     }
 }

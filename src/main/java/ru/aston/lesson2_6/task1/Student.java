@@ -62,7 +62,7 @@ public class Student {
         return (double) sum / marks.size();
     }
 
-    public static void removeStudentAverageLessThree(List<Student> students) {
+    public void removeStudentAverageLessThree(List<Student> students) {
         for (int i = 0; i < students.size(); i++) {
             Student student = students.get(i);
             if (student.getAverage() < 3) {
@@ -73,7 +73,7 @@ public class Student {
         }
     }
 
-    public static void nextCourse(List<Student> students) {
+    public void nextCourse(List<Student> students) {
         for (Student student : students) {
             if (student.getAverage() >= 3) {
                 int oldCourse = student.getCourse();
@@ -83,7 +83,7 @@ public class Student {
         }
     }
 
-    public static void printStudents(Set<Student> students, int course) {
+    public void printStudents(Set<Student> students, int course) {
         int count = 0;
         System.out.println("На " + course + " курсе обучаются студенты:");
         for (Student student : students) {
