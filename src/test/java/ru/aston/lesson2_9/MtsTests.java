@@ -15,7 +15,8 @@ public class MtsTests extends BaseTest {
     public void testLink() {
         onlinePaymentPage.clickOnButton();
         wait.until(ExpectedConditions.urlContains(Constants.URL_PODROBNEE));
-        Assertions.assertTrue(driver.getCurrentUrl().contains(Constants.URL_PODROBNEE));
+        Assertions.assertEquals(Constants.HEADER_EXPECTED, onlinePaymentPage.getNameHeader(),
+                "Ссылка не ведет на ожидаемую страницу");
     }
 
     @Test

@@ -14,9 +14,11 @@ public class Constants {
     public static final String PHONE_NUMBER_XPATH = "//input[@id='connection-phone']";
     public static final String SUM_XPATH = "//input[@id='connection-sum']";
     public static final String IFRAME_XPATH = "//iframe[@class='payment-widget-iframe']";
+    public static final String HEADER_XPATH = "//h3[contains(text(), 'Оплата банковской картой')]";
 
     // Ожидаемые значения
     public static final String NAME_TITLE_EXPECTED = "ОНЛАЙН ПОПОЛНЕНИЕ БЕЗ КОМИССИИ";
+    public static final String HEADER_EXPECTED = "Оплата банковской картой";
 
     // Названия логотипов
     public static final String LOGO_BELKART = "Белкарт";

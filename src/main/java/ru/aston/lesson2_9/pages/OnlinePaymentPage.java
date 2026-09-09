@@ -50,6 +50,11 @@ public class OnlinePaymentPage {
         return nameTitle.getText().replaceAll("\\s+", " ").trim();
     }
 
+    public String getNameHeader() {
+        WebElement nameHeader = waitForElementVisibility(By.xpath(Constants.HEADER_XPATH));
+        return nameHeader.getText();
+    }
+
     public boolean isLogosDisplay(String logoName) {
         try {
             return driver.findElement(By.xpath("//img[@alt='" + logoName + "']")).isDisplayed();
@@ -82,7 +87,3 @@ public class OnlinePaymentPage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Constants.IFRAME_XPATH))).isDisplayed();
     }
 }
-
-
-
-
